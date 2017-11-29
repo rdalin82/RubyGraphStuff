@@ -1,7 +1,9 @@
 require 'pry'
+require 'benchmark'
 require './edge'
 require './graph'
 require './prim'
+require './prim_heap'
 
 
 begin
@@ -25,9 +27,14 @@ else
   puts "You don screwed up"
 end
 
-p = Prim.new(g)
+# p = Prim.new(g)
+# puts Benchmark.measure { mst = p.run }
+p_heap = PrimHeap.new(g)
+puts Benchmark.measure { mst_heap = p_heap.run }
 
-mst = p.run
-puts mst
-puts p.total_weight
+
+
+
+# puts mst
+# puts p.total_weight
 

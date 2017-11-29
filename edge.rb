@@ -23,6 +23,6 @@ class Edge
   end
 
   def to_s
-    "start: #{@v} stop: #{@w} weight: #{@weight}"
+    "start: #{@v} \t\t stop: #{@w} \t\t weight: #{@weight}"
   end
 end
