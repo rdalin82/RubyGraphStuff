@@ -35,7 +35,5 @@ class PrimHeap
     @g.edges(v).each do |edge|
       @candidates.add edge
     end
-    # noop
-    # @candidates = @candidates.flatten.sort
   end
 end
