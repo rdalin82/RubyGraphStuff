@@ -41,7 +41,7 @@ class Dijkstra
   end
 
   def path(stop, path=[])
-    path << stop
+    path.unshift stop
     return path if stop == @source
     path(@edge_to[stop].either, path)
   end

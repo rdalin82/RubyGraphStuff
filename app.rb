@@ -37,7 +37,7 @@ puts Benchmark.measure { mst = p.run }
 p_heap = PrimHeap.new(g)
 puts Benchmark.measure { mst_heap = p_heap.run }
 
-d = Dijkstra.new(g, 0)
+d = Dijkstra.new(dg, 0)
 d.run
 
 binding.pry
