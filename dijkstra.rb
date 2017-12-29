@@ -7,7 +7,7 @@ class Dijkstra
     @source = source
     @dist_to = Array.new(@g.v) { Float::INFINITY }
     @edge_to = []
-    @edges = []
+    @edges = Heap.new
     @visited = Array.new(@g.v)
   end
 
@@ -16,8 +16,7 @@ class Dijkstra
     @edge_to[@source] = nil
     visit(@source)
     until @edges.empty?
-      edge = @edges.shift
-      puts edge, @edges.length
+      edge = @edges.remove
       relax(edge)
       visit(edge.other(edge.either)) unless @visited[edge.other(edge.either)]
     end
@@ -26,9 +25,8 @@ class Dijkstra
   def visit(vertex)
     @visited[vertex] = true
     @g.edges(vertex).each do |edge|
-      @edges << edge
+      @edges.add edge
     end
-    @edges.sort
   end
 
   def relax(edge)
