@@ -42,8 +42,7 @@ class Dijkstra
 
   def path(stop, path=[])
     path << stop
-    vert = stop
-    return path if vert == @source
-    path(@edge_to[vert].either, path)
+    return path if stop == @source
+    path(@edge_to[stop].either, path)
   end
 end
