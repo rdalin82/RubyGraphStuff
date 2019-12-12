@@ -6,6 +6,7 @@ require './directed_graph'
 require './prim'
 require './prim_heap'
 require './dijkstra'
+require './hamilton'
 
 
 begin
@@ -39,5 +40,8 @@ puts Benchmark.measure { mst_heap = p_heap.run }
 
 d = Dijkstra.new(dg, 0)
 d.run
+
+h = Hamilton.new(dg, 0)
+h.run
 
 binding.pry
